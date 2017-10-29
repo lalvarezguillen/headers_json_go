@@ -2,7 +2,7 @@ language: go
 go:
   - 1.9
 
-scriot:
+script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
 
 after_success:
