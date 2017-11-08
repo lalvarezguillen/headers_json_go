@@ -17,7 +17,8 @@ func TestGetHeadersDisregardsOkURLs(t *testing.T) {
 }
 
 func TestGetHeadersHandlesErrors(t *testing.T) {
-	errResp := getHeaders("bad url")
+	url := "bad url"
+	errResp := getHeaders(&url)
 	if _, ok := errResp["error"]; !ok {
 		t.Error("getHeaders is not handling errors properly")
 	}
