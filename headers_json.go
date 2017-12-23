@@ -44,11 +44,11 @@ func mainHandler(ctx echo.Context) error {
 	url := ctx.QueryParam("url")
 	fmt.Println(url)
 	if url == "" {
-		welcome := "This micro-service does a HEAD request to a url " +
+		welcomeMsg := "This micro-service does a HEAD request to a url " +
 			"and returns the response's headers as JSON. " +
 			"\nThe request should look like: " +
-			"GET thisservice.com/www.yoururl.com"
-		return ctx.String(http.StatusOK, welcome)
+			"GET thisservice.com?url=www.yoururl.com"
+		return ctx.String(http.StatusOK, welcomeMsg)
 	}
 	return ctx.JSONPretty(http.StatusOK, getHeaders(&url), "  ")
 }

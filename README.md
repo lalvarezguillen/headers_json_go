@@ -2,7 +2,7 @@
 
 Toy project to test Golang's Echo.
 
-It's a simple API that takes an URL, makes a HEAD request to it, and returns the response's headers as JSON.
+It's a simple API that takes a URL, makes a HEAD request to it, and returns the response's headers as JSON.
 
 Get the service running:
 ```bash
