@@ -25,7 +25,7 @@ func guaranteeProtocol(url string) string {
 // as a map
 func getHeaders(url *string) map[string]string {
 
-	resp, err := grequests.Get(guaranteeProtocol(*url), nil)
+	resp, err := grequests.Head(guaranteeProtocol(*url), nil)
 	headers := make(map[string]string)
 	if err != nil {
 		headers["error"] = "There was a problem fetchign your url"
@@ -44,7 +44,7 @@ func mainHandler(ctx echo.Context) error {
 	url := ctx.QueryParam("url")
 	fmt.Println(url)
 	if url == "" {
-		welcome := "This micro-service does a GET request to a url " +
+		welcome := "This micro-service does a HEAD request to a url " +
 			"and returns the response's headers as JSON. " +
 			"\nThe request should look like: " +
 			"GET thisservice.com/www.yoururl.com"
